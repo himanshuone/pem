@@ -1,0 +1,574 @@
+{% extends "base_footer.html" %}
+{% block content %}
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- This meta tag sets the character encoding for the document -->
+    <meta charset="utf-8">
+    <!-- The X-UA-Compatible meta tag is used to force IE to use the latest rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- The viewport meta tag is used to control the layout on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The title tag sets the title of the document, which is shown in the browser's title bar or tab -->
+    <title>Rivaaz Events</title>
+    <link rel="icon" type="image/x-icon" href="{%static 'img/Logo.png' %}">
+    <!-- Link to the bootstrap CSS file -->
+    <link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Link to the global CSS file -->
+    <link href="{%static 'css/global.css' %}" rel="stylesheet">
+    <!-- Link to the index CSS file -->
+    <link href="{%static 'css/index.css' %}" rel="stylesheet">
+    <!-- Link to the Font Awesome CSS file -->
+    <link rel="stylesheet" type="text/css" href="{%static 'css/font-awesome.min.css'%}" />
+    <!-- Link to the element CSS file -->
+    <link href="{%static 'css/element.css' %}" rel="stylesheet">
+    <!-- Link to the Josefin Sans font on Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <!-- Link to the Pacifico font on Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Link to the jQuery library -->
+    <script src="{%static 'js/imageTiles.js' %}"></script>
+    <script src="{%static 'js/changingtext.js' %}"></script>
+    <script src="{%static 'js/jquery-2.1.1.min.js' %}"></script>
+    <!-- Link to the bootstrap JS file -->
+    <script src="{%static 'js/bootstrap.min.js' %}"></script>
+
+</head>
+
+
+<body>
+
+
+
+    <section id="header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                        <!-- The sr-only class is used to hide the text from screen readers -->
+                        <span class="sr-only">Toggle navigation</span>
+                        <!-- The icon-bar class is used to create the hamburger menu icon -->
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- The navbar-brand class is used to style the brand or logo -->
+                    <a class="navbar-brand heading_tag" style="margin: -50px 0px 0px -40px;" href="Home"> <img
+                            src="{{headerLogoImage.url}}" alt="Rivaaz" width="200" height="150" class="img-fluid"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <!-- The active_tab class is used to style the active tab -->
+                            <a class="tag_menu" href="Home">HOME</a>
+                        </li>
+
+                        <li>
+                            <a class="tag_menu active_tab" href="About">ABOUT</a>
+                        </li>
+
+
+                        <li>
+                            <a class="tag_menu" href="Testimonial">TESTIMONIAL</a>
+                        </li>
+
+                        <li>
+                            <a class="tag_menu" href="Gallery">GALLERY</a>
+                        </li>
+
+                        <li>
+                            <a class="tag_menu" href="Services">SERVICES</a>
+                        </li>
+
+                        <li>
+                            <a class="tag_menu" href="Team">TEAM</a>
+                        </li>
+
+                        <li>
+                            <a class="tag_menu" href="Contact">CONTACT</a>
+                        </li>
+
+
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+    </section>
+
+
+
+
+    <section id="header_mini">
+        <div class="container">
+            <div class="row">
+                <div class="header_mini clearfix">
+                    <!-- The heading_tag class is used to style the heading -->
+                    <h1><a class="heading_tag" href="Home"><img src="{{headerLogoImage.url}}" alt="Rivaaz"
+                                width="100" height="100" class="img-fluid"></a></h1>
+                </div>
+                <!-- The menu-toggle button is used to toggle the sidebar navigation -->
+                <a id="menu-toggle" href="#" class="btn btn-warning btn-lg toggle">
+                    <i class="fa fa-toggle-on"></i>
+                </a>
+                <!-- The sidebar-wrapper div contains the sidebar navigation -->
+                <div id="sidebar-wrapper" class="">
+                    <ul class="sidebar-nav">
+                        <!-- The menu-close button is used to close the sidebar navigation -->
+                        <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                        <li class="sidebar-brand">
+                            <a class="heading_tag" href="Home">RIVAAZ</a>
+                        </li>
+                        <li>
+                            <a class="tag_menu active_tab" href="Home">HOME</a>
+                        </li>
+                        <li>
+                            <a class="tag_menu" href="About">ABOUT</a>
+                        </li>
+
+                        <li>
+                            <a class="tag_menu" href="Testimonial">TESTIMONIAL</a>
+                        </li>
+                        <li>
+                            <a class="tag_menu" href="Gallery">GALLERY</a>
+                        </li>
+                        <li>
+                            <a class="tag_menu" href="Services">SERVICES</a>
+                        </li>
+                        <li>
+                            <a class="tag_menu" href="Team">TEAM</a>
+                        </li>
+                        <li>
+                            <a class="tag_menu" href="Contact">CONTACT</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- TODO: This Page is scrolling horizontally which is not required. correct that -->
+
+    <section id="center" class="clearfix">
+        <video autoplay loop muted playsinline>
+            <source src="{{backVideo.url}}" class='img-fluid' type="video/mp4">
+        </video>
+
+
+
+
+        <div class="center_main clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="center clearfix">
+                        <div class="col-sm-7 center_left clearfix">
+                            <div class="center_left_inner clearfix">
+                                <!-- The h1 tag is used to display a large heading -->
+                                <h1>Rivaaz Events</h1>
+                                <!-- The h3 tag is used to display a medium heading -->
+                                <!-- <h3>Be The Guest, Let Us Do The Rest</h3> -->
+                                <!-- The h5 tag is used to display a small heading -->
+                                <!-- TODO: Make this animated string show in 1 line and also change the animation for reference refer video -->
+                                <div id="text-container">
+                                    <p id="text">Your One Stop Solution!</p>
+                                </div>
+                                <!-- End TODO -->
+                                <h5>A Gateway to Your Dream Event!</h5>
+                                <!-- The h4 tag is used to display a subheading -->
+                                <h4><a href="#center_5">Know More</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </section>
+<style>
+    #header_mini {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+    #about {
+        position: relative;
+        z-index: 1;}
+    </style>    
+    <section id="center_2" class="clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="center_2 clearfix">
+                    <div class="center_2_top clearfix">
+                        <!-- The h2 tag is used to display a medium heading -->
+                        <h2 style="font-weight: bold;">Enchanted by the artistry of</h2>
+                        <!-- The hr tag is used to create a horizontal line -->
+                        <hr class="hr_1">
+                        <!-- The p tag is used to display a paragraph -->
+                        <p>Rivaaz Events</p>
+                    </div>
+                    <div class="center_2_middle clearfix">
+
+                        {% for i in stories %}
+                        <div class="col-sm-4 center_2_middle_left clearfix">
+                            <div class="center_2_middle_left_inner clearfix">
+                                <!-- The i tag is used to display a font-awesome icon -->
+                                <p><img src="{{ i.LogoImage.url }}" class="img-circle" height="200" width="200"></p>
+                                <h2><a href="Gallery">{{ i.ClientNames}}</a></h2>
+                                <h4> {{i.StoryName}}</h4>
+                                <h4><i class="fa fa-calendar"></i> {{i.Date}}</h4>
+                                <h4><i class="fa fa-map-marker"></i> {{i.Location}}</h4>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="center_3" class="clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="center_3 clearfix">
+                    <div class="center_3_top clearfix">
+                        <!-- center_3_top is a container for the heading and the paragraph -->
+                        <h2>Artfully Crafted Assistance</h2>
+                        <hr class="hr_1">
+
+                        {% for j in services_subset %}
+                        <div class="col-sm-3 center_2_middle_left clearfix">
+                            <div class="center_2_middle_left_inner clearfix">
+                                <!-- The i tag is used to display a font-awesome icon -->
+                                <p><img src="{{j.LogoImage.url}}" class="img-circle" height="200" width="200"></p>
+                                <h2 style="font-family: 'Josefin Sans'; color: #ffffff;"><a href="Gallery"
+                                        style="font-family: 'Josefin Sans'; color: #ffffff;">{{j.ServiceName}}</a></h2>
+                            </div>
+                        </div>
+                        {%endfor%}
+                        <h5><a href="Services">& MANY MORE...</a></h5>
+                        <!-- h5 element with a link to learn more -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TODO: Make the background image of this section also come from the database like other images from MasterImagesTable with enabled black film(#00000091) just like it is implemented currently -->
+    <section id="center_5" class="clearfix">
+        <div class="center_5 clearfix">
+            <!-- <div class="col-sm-7 center_5_left clearfix" > -->
+            <div class="center_5_left_inner clearfix">
+                <h2 style="font-family: 'Josefin Slab Thin'; font-weight: bold;">About Us</h2>
+                <hr class="hr_1">
+                <h4>Kyunki Har Khushi 'Rivaaz' ke Sath Manate Hai</h4>
+                <p>Rivaaz Events is your one-stop solution for creating unforgettable experiences. Our team of
+                    experienced professionals will work with you to plan and execute your special event, from weddings
+                    to corporate events and everything in between. We are dedicated to delivering exceptional results
+                    and pride ourselves on our commitment to quality. With a passion for our craft and a Tenacity to
+                    excellence, Rivaaz Events is the ideal choice for anyone looking to create a truly memorable event.
+                </p>
+                <h5 align="center" style="padding-bottom: 25px"><a href="About">Learn More</a></h5>
+            </div>
+            <!-- </div> -->
+            <!-- <div class="col-sm-5 center_5_right clearfix">
+   <div class="center_5_right_inner clearfix">
+    <p><img src="{{aboutUsLogoImage.url}}" class="img-fluid" width="100%"></p>
+   </div>
+  </div> -->
+        </div>
+    </section>
+    <!-- END TODO -->
+    <section id="center_6" class="clearfix">
+
+        <div class="containerr">
+            <div class="roww">
+                <div class="center_6 clearfix">
+                    <div class="center_6_top clearfix">
+                        <h2>Portfolio</h2>
+                        <hr class="hr_1">
+                    </div>
+                    <div class="center_6_middle clearfix">                      
+                        <main id="carousel">
+                            {% for i in gallery %}
+                                <div class="item" style="height: 400px; width: 300px; background-image: url({{i.DisplayImage.url}});">
+                                {% comment %} <img src= alt="img08" /> {% endcomment %}
+                                </div>
+                            {% endfor %}
+                            
+                        </main>
+
+
+                    </div>
+
+
+                    <div class="center_6_bottom clearfix">
+                        <h5><a href="Gallery">VIEW MORE</a></h5> <!-- link to view more testimonials -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section id="center_7" class="clearfix">
+        <!-- This div contains the container class for the row -->
+        <div class="container">
+            <div class="row">
+                <div class="center_7 clearfix">
+                    <div class="center_7_top clearfix">
+                        <!-- Section heading -->
+                        <h2>What Our Client Say About Us!</h2>
+                        <!-- Horizontal line -->
+                        <hr class="hr_1">
+                    </div>
+                    <div class="center_7_middle clearfix">
+                        {% for k in testimonial_subset %}
+
+                        <div class="col-sm-4 center_6_middle_left clearfix">
+                            <!-- <Image><source src="{{backVideo.url}}" class='img-fluid'> </Image> -->
+                            <!-- <img src="  {{testimonialBackImage.url}}"> -->
+                           
+                            <div class="center_7_middle_left_inner clearfix" 
+                                 style="height:500px; width: 300px;  text-align: center; background-image: url('{{ testimonialBackImage.url }}'); background-size: cover; background-position: center; transition: all 0.3s ease;">
+                        
+                                <p>
+                                    <img src="{{k.LogoImage.url}}" class="img-fluid" 
+                                         style="border-radius: 50%; border: 2px solid #e8e8e8; height: 150px; width: 150px;">
+                                </p>
+                                <!-- Subheading -->
+                                <h2><a href="Testimonial" 
+                                       style="color:#9b7700; font-weight: bold;">{{k.ClientNames}}</a></h2>
+                        
+                                <!-- Horizontal line -->
+                                <hr class="hr_1">
+                                <!-- Paragraph -->
+                                <p style="color:#ffffff">{{k.ClientReview}}</p>
+                                <!-- Horizontal line -->
+
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- This script imports the classie.js file -->
+    <script src="{%static 'js/classie.js' %}"></script>
+    <!-- This script imports the cbpAnimatedHeader.js file -->
+    <script src="{%static 'js/cbpAnimatedHeader.js' %}"></script>
+    <!-- This script uses jQuery to toggle the "active" class when the menu-close or menu-toggle buttons are clicked. This controls the visibility of the sidebar-wrapper element. -->
+
+
+
+    <script type="text/javascript">
+        $("#menu-close").click(function (e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentSlide = 0;
+            const totalSlides = 5;
+            const slideDuration = 3000; // Duration for each slide to stay in the center
+            const marginOffset = 30; // Total margin for an item (left + right)
+
+            function moveSlide(slideIndex) {
+                const slides = document.querySelectorAll('.item');
+                slides.forEach((slide, index) => {
+                    slide.style.zIndex = 1; // Reset zIndex for all slides
+                    if (index === slideIndex) {
+                        slide.style.transform = 'translateX(-50%) scale(1)';
+                        slide.style.opacity = 1;
+                        slide.style.zIndex = 2;
+                    } else if (index < slideIndex) {
+                        let offset = (slideIndex - index) * (100 + marginOffset); // Adjusted offset for larger size and margin
+                        slide.style.transform = `translateX(calc(-50% - ${offset}px)) scale(0.8)`;
+                        slide.style.opacity = 0.5;
+                    } else {
+                        let offset = (index - slideIndex) * (100 + marginOffset); // Adjusted offset for larger size and margin
+                        slide.style.transform = `translateX(calc(-50% + ${offset}px)) scale(0.8)`;
+                        slide.style.opacity = 0.5;
+                    }
+                });
+            }
+
+            function updateCarousel() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                moveSlide(currentSlide);
+            }
+
+            // Initialize the carousel immediately
+            moveSlide(currentSlide);
+            setInterval(updateCarousel, slideDuration);
+        });
+
+
+    </script>
+
+
+    <style>
+
+        .center_7_middle_left_inner {
+            transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+        }
+
+        .center_7_middle_left_inner:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px 0 #DDD78F; /* Example hover effect */
+           
+        }
+
+        @media screen and (max-width : 767px){
+
+
+            .center_7_middle_left_inner {
+
+
+                margin-left: 50px;
+            }
+        }
+
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        #text {
+            font-size: 38px;
+            font-style: bold;
+            top: 50px;
+            animation-duration: 3s;
+            animation-fill-mode: both;
+            white-space: nowrap;
+            color: #eedc07;
+        }
+
+        .fade-in {
+            animation-name: fadeIn;
+        }
+
+        .fade-out {
+            animation-name: fadeOut;
+        }
+
+
+        @media screen and (max-width: 600px) {
+            #text {
+                width: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+
+        #carousel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .item {
+            position: absolute;
+            margin: 0px 15px;
+            width: 300px;
+            height: 400px;
+            left: 50%;
+            transition: transform 1s ease, opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        .item.center {
+            transform: translateX(-50%) scale(1);
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .item.left {
+            transform: translateX(calc(-100% - 50px)) scale(0.8);
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+
+        #center_6 {
+
+            width: 100%;
+        }
+
+        .roww {
+            width: auto;
+            margin-left: -10%;
+        }
+
+        .center_6_top {
+
+            margin-left: 10%;
+        }
+
+        .center_6_bottom {
+
+            margin-left: 10%;
+        }
+    </style>
+
+
+
+</body>
+
+</html>
+{% endblock content %}

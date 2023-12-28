@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rivaaz Events</title>
+  <link rel="icon" type="image/x-icon" href="{%static 'img/Logo.png'%}">
+  <link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{%static 'css/global.css' %}" rel="stylesheet">
+  <link href="{%static 'css/index.css' %}" rel="stylesheet">
+  <link href="{%static 'css/about.css' %}" rel="stylesheet">
+  <link href="{%static 'css/team.css' %}" rel="stylesheet">
+  <link href="{%static 'css/contact.css' %}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/font-awesome.min.css' %}" />
+  <link href="{%static 'css/element.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+  <script src="{%static 'js/jquery-2.1.1.min.js' %}"></script>
+  <script src="{%static 'js/bootstrap.min.js' %}"></script>
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+  <section id="about" class="about_contact clearfix" style="	background-image: url('{{backImage.url}}')">
+    <div class="about_main clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="about clearfix">
+            <div class="col-sm-7 about_left clearfix">
+              <div class="about_left_inner clearfix">
+                <h1 style="font-family:'Garamond'">Get in Touch</h1>
+                <h5 style="color: #fff;">Let's Create Your 'Rivaaz' Togeather</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact_2" class="clearfix" style="background: #f4f4f4">
+    <div class="container">
+      <div class="row">
+        <div class="contact_2 clearfix">
+          <h1 style="font-family: 'Josefin Sans', sans-serif; font-weight: bold; color: #AD8706">Feedback</h1>
+          <hr class="hr_1">
+          <p style="font-family: 'Josefin Sans', sans-serif">We would love to hear from you! <br> Contact us directly by
+            filling this form.</p>
+
+          <form action="Contact" method="post" class="feedback-form">
+            {% csrf_token %}
+            <input type="text" class="form-control" placeholder="Name" name="name" required>
+            <input type="email" class="form-control" placeholder="E-mail Address" name="email" required>
+            <input type="tel" class="form-control" placeholder="Number" name="Number">
+            <textarea placeholder="Message" class="form-control" name="message" required></textarea>
+            <button type="submit">SEND MESSAGE</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <style>
+    /* Custom Styles for Feedback Form */
+    .feedback-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .feedback-form input,
+    .feedback-form textarea {
+      margin-bottom: 15px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .feedback-form button {
+      background-color: #AD8706;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .feedback-form button:hover {
+      background-color: #927a06;
+    }
+  </style>
+
+
+  <script src="{%static 'js/classie.js' %}"></script>
+  <script src="{%static 'js/cbpAnimatedHeader.js' %}"></script>
+  <script type="text/javascript">
+    $("#menu-close").click(function (e) {
+      e.preventDefault();
+      $("#sidebar-wrapper").toggleClass("active");
+    });
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#sidebar-wrapper").toggleClass("active");
+    });
+  </script>
+</body>
+
+</html>
+{% endblock content %}

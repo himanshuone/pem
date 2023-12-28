@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rivaaz Events</title>
+    <link rel="icon" type="image/x-icon" href="{%static 'img/Logo.png' %}">
+    <link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{%static 'css/global.css' %}" rel="stylesheet">
+    <link href="{%static 'css/index.css' %}" rel="stylesheet">
+    <link href="{%static 'css/img_gallery.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/font-awesome.min.css' %}" />
+    <link href="{%static 'css/element.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="{%static 'js/jquery-2.1.1.min.js' %}"></script>
+    <script src="{%static 'js/bootstrap.min.js' %}"></script>
+
+
+
+<style> 
+
+
+
+
+
+    #gallery {
+        display: grid;
+        margin-top:2%;
+        margin-left:2%;
+        margin-right:2%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: auto; /* Adjusted to auto for dynamic height */
+        grid-gap: 30px;
+        
+        
+    }
+    
+    .gallery-item {
+        width: 450px; 
+        height: 300px; 
+        overflow: hidden;
+        position: relative;
+        border: 5px solid #dbdb3d;
+        margin-bottom: 30px;
+    }
+    
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* This will ensure that images cover the area without stretching */
+        display: block;
+    }
+
+    
+
+    @media (max-width: 768px) {
+        #gallery {
+            grid-template-columns: 1fr; 
+        }
+
+
+        .gallery-item{
+            left:25px;
+            width: 360px; 
+            height: 200px; 
+        }
+    }
+
+
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+    
+
+    <section id="about" class="about_imgGallery clearfix" style="background-image: url('{{header_image.url}}');">
+        <div class="about_main clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="about clearfix">
+                        <div class="col-sm-7 about_left clearfix">
+                            <div class="about_left_inner clearfix">
+                                <h1 style="font-family:'Garamond">{{ event_name }}</h1>
+                                <h5 style="color: #fff;">{{ event_desc }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="gallery" class="clearfix" style="background: #f4f4f4">
+        <div class="container">
+            <div class="row">
+                <div class="gallery clearfix">
+                    <!-- <h1>Ready to dive into the 'Rivaaz' treasure trove?<br> Showcasing the heart and soul we put into crafting unforgettable moments.</h1> -->
+                </div>
+                <!-- <div class="gallery_middle clearfix">
+    {% for i in gallery2 %}
+    <div class="col-sm-6 gallery_middle_left clearfix">
+     <div class="grid">
+                    
+                    <figure class="effect-ming">
+                        <img src="{{i.Image.url}}" alt="img08"/>
+                        <figcaption>
+                            <h2>sjbdjsbd</h2>
+                            <p>Muditp>
+                            <a href="{% url 'img_gallery' i.EventID %}">View more</a>                       
+                        </figcaption>
+          </figure>
+      </div>
+    </div>
+    {% endfor %}
+   </div> -->
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="gallery" id="gallery">
+        {% for i in gallery2 %}
+        <div class="gallery-item">
+            <div class="content"><img src="{{i.Image.url}}" alt=""></div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="{%static 'js/classie.js' %}"></script>
+    <script src="{%static 'js/cbpAnimatedHeader.js' %}"></script>
+    <script type="text/javascript">
+        var gallery = document.querySelector('#gallery');
+        var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
+        var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
+        var resizeAll = function () {
+            var altura = getVal(gallery, 'grid-auto-rows');
+            var gap = getVal(gallery, 'grid-row-gap');
+            gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+                var el = item;
+                el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+            });
+        };
+        gallery.querySelectorAll('img').forEach(function (item) {
+            item.classList.add('byebye');
+            if (item.complete) {
+                console.log(item.src);
+            }
+            else {
+                item.addEventListener('load', function () {
+                    var altura = getVal(gallery, 'grid-auto-rows');
+                    var gap = getVal(gallery, 'grid-row-gap');
+                    var gitem = item.parentElement.parentElement;
+                    gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
+                    item.classList.remove('byebye');
+                });
+            }
+        });
+        window.addEventListener('resize', resizeAll);
+        gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+            item.addEventListener('click', function () {
+                item.classList.toggle('full');
+            });
+        });
+
+
+        
+    </script>
+    <script type="text/javascript">
+		$("#menu-close").click(function (e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		});
+		$("#menu-toggle").click(function (e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		});
+	</script>
+</body>
+
+</html>
+{% endblock content %}

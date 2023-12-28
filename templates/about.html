@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rivaaz Events</title>
+  <link rel="icon" type="image/x-icon" href="{%static 'img/Logo.png' %}">
+  <link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{%static 'css/global.css' %}" rel="stylesheet">
+  <link href="{%static 'css/index.css' %}" rel="stylesheet">
+  <link href="{%static 'css/about.css' %}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/font-awesome.min.css' %}" />
+  <link href="{%static 'css/element.css' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+  <script src="{%static 'js/jquery-2.1.1.min.js' %}"></script>
+  <script src="{%static 'js/bootstrap.min.js' %}"></script>
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+  <section id="about" class="clearfix" style="background-image: url('{{backImage.url}}');">
+    <div class="about_main clearfix">
+      <div class="container">
+        <div class="row">
+          <div class="about clearfix">
+            <div class="col-sm-7 about_left clearfix">
+              <div class="about_left_inner clearfix">
+                <h1 style="font-family:'Garamond'">About us</h1>
+                <h5 style="color: #fff;">Crafting Memories, the 'Rivaaz' Way</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about_2" class="clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="about_2 clearfix">
+          <div class="col-sm-5 about_2_left clearfix">
+            <div class="about_2_left_inner clearfix">
+              <h1 style="color: #AD8706;">Why Choose Us?<br> Our Success Mantra is "Quality"</h1>
+            </div>
+          </div>
+          <div class="col-sm-7 about_2_right clearfix">
+            <div class="about_2_right_inner clearfix">
+              <div class="col-sm-6 about_2_right_inner_left clearfix">
+                <div class="about_2_right_inner_left_inner clearfix">
+                  <p>Choosing us will provide you with a superior level of service and attention to detail. Our
+                    experienced team is dedicated to crafting an unforgettable event tailored to your specific needs and
+                    preferences. We are committed to delivering exceptional results and making your vision a reality.
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-6 about_2_right_inner_right clearfix">
+                <div class="about_2_right_inner_left_inner clearfix">
+                  <p>With our extensive network and industry connections, we have the resources and expertise to handle
+                    every aspect of your event, from start to finish. Our goal is to provide you with a stress-free and
+                    enjoyable planning experience, so that you can relax and enjoy your special day. Let us help you
+                    create memories that will last a lifetime.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- TODO: Make the display image of the container cover the whole container -->
+        <div class="center_2_middle clearfix">
+
+          {% for i in stories %}
+          <div class="col-sm-4 about_2_middle_left clearfix">
+            <div class="about_2_middle_left_inner clearfix">
+              <div class="ih-item square effect13 right_to_left" style="height:495px; width:360px"><a
+                  href="Gallery">
+                  <!-- Expand this image to contain in the whole container -->
+                  <div class="img"><img src="{{ i.LogoImage.url }}" width="350" height="485"></div>
+                  <div class="info">
+                  </div>
+                </a></div>
+            </div>
+            <div class="about_2_middle_left_inner_2 clearfix">
+              <h1><a href="Gallery" style="font-family: 'Josefin Sans';color: #AD8706 ">{{ i.ClientNames}}</a></h1>
+              <h6 style="font-family: 'Josefin Sans';color: #666; padding-bottom: 5px ">{{ i.StoryName}}</h6>
+              <h5 style=" color: #666; "><i class="fa fa-calendar" style="padding: 10px; color: #666; "></i>{{ i.Date}}
+              </h5>
+              <h5 style=" color: #666; "><i class="fa fa-map-marker" style=" color: #666; "></i> {{ i.Location}}</h5>
+
+            </div>
+
+          </div>
+          {% endfor %}
+
+
+
+        </div>
+        <!-- END TODO -->
+      </div>
+    </div>
+  </section>
+
+  <section id="center_3" class="clearfix" style="background: #f4f4f4;">
+    <div class="container">
+      <div class="row">
+        <div class="center_3 clearfix">
+          <div class="center_3_top clearfix">
+            <h2 style="color: #AD8706">Exceptional Event Curation & Flawless Execution with a Gourmet Touch.</h2>
+            <hr class="hr_1">
+            <p>With over two decades of expertise in the event planning industry, we proudly reflect on the countless
+              occasions that we have delivered a memorable and beautifully orchestrated experience. We are unwavering in
+              our commitment to ensuring that our clients experience events that are breathtaking and leave a lasting
+              impact. As we look back on our journey so far, our unwavering goal has been to curate events that are
+              unforgettable, be it a wedding, corporate gathering, or social celebration. Our passion for excellence and
+              attention to detail is evident in the unforgettable moments we help create.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="center_7" class="clearfix" style="background: #FFFFFF;">
+    <div class="container">
+      <div class="row">
+        <div class="center_7_middle clearfix">
+          <div class="col-sm-3 center_6_middle_left clearfix">
+            <div class="center_7_middle_left_inner clearfix" style="background-image: url('{{ourvalues1.url}}');">
+              <div class="overlay"></div>
+              <h2>Innovation</h2>
+              <hr class="hr_1">
+              <p>Embracing creativity and out-of-the-box thinking to drive progress and continuous improvement.</p>
+            </div>
+          </div>
+          <div class="col-sm-3 center_6_middle_left clearfix">
+            <div class="center_7_middle_left_inner clearfix" style="background-image: url('{{ourvalues2.url}}');">
+              <div class="overlay"></div>
+              <h2>Integrity</h2>
+              <hr class="hr_1">
+              <p>Operating with honesty, transparency, and ethics in all our dealings, and upholding our commitments to
+                our stakeholders.</p>
+            </div>
+          </div>
+          <div class="col-sm-3 center_6_middle_left clearfix">
+            <div class="center_7_middle_left_inner clearfix" style="background-image: url('{{ourvalues3.url}}');">
+              <div class="overlay"></div>
+              <h2>Humanity</h2>
+              <hr class="hr_1">
+              <p>Prioritizing empathy, kindness, and the human connection in our interactions with clients, partners,
+                and each other.</p>
+            </div>
+          </div>
+          <div class="col-sm-3 center_6_middle_left clearfix">
+            <div class="center_7_middle_left_inner clearfix" style="background-image: url('{{ourvalues4.url}}');">
+              <div class="overlay"></div>
+              <h2>Sustainability</h2>
+              <hr class="hr_1">
+              <p>Demonstrating a commitment to environmental and social sustainability in all our operations and
+                decision-making.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="center_5" class="clearfix" style="background:#f4f4f4;padding-top:70px;padding-bottom:70px;">
+    <div class="center_5 clearfix">
+      <div class="col-sm-7 center_5_left clearfix">
+        <div class="center_5_left_inner clearfix">
+          <h2 style="font-family: 'Josefin Slab Thin';color: #AD8706; padding-bottom: 20px;font-weight: bold;">Team
+            Rivaaz</h2>
+
+          <p style="color: #666666; ">Rivaaz Events is a team of diverse individuals hailing from various backgrounds,
+            places, and age groups, united by a shared passion for crafting unforgettable, stunning events. We take
+            pride in our team of dedicated and talented professionals who embody a common set of values.</p>
+
+        </div>
+      </div>
+      <div class="col-sm-5 center_5_right clearfix">
+        <div class="center_5_right_inner clearfix">
+
+          <p><img src="{{ teamRivaazImage.url }}" class="img-fluid"
+              style="width: 85%; transform: rotate(-5deg); margin: 0; position: relative; bottom: 0px;border-radius: 10px;">
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="center_7" class="clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="center_7 clearfix">
+          <div class="center_7_top clearfix">
+
+            <h1
+              style="text-align: center; color:#AD8706;padding-bottom: 10px;font-family: 'Josefin Slab Thin'; font-size: 45PX;font-weight: bold;">
+              Happy clients, happy life - we're knot kidding!</h1>
+            <hr class="hr_1">
+            <div id="review-container">
+              <p id="review"
+                style="	text-align: 	center	;font-family: 'Courier New'; color:#AD8706;padding-bottom: 10px;font-size: 25PX;">
+                Our Approach - 'The Rivaaz'</p>
+
+            </div>
+            <p style="	text-align: 	center	;font-size: 20px;color: #666666;">We are your partners, not just planners. We
+              work hand in hand with you as a passionate, driven team, ensuring your vision for the event is not just
+              met but exceeded.
+
+              <br><br> We understand that each event is unique, just like you. Be it a community gathering, a
+              high-octane concert, a vibrant cultural festival, weddings, carnivals or a meticulously organized
+              corporate event we thrive on turning your aspirations into reality.
+            </p>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="{%static 'js/classie.js' %}"></script>
+  <script src="{%static 'js/cbpAnimatedHeader.js' %}"></script>
+  <script type="text/javascript">
+    $("#menu-close").click(function (e) {
+      e.preventDefault();
+      $("#sidebar-wrapper").toggleClass("active");
+    });
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#sidebar-wrapper").toggleClass("active");
+    });
+  </script>
+
+
+  <style>
+    .center_7_middle_left_inner {
+      position: relative;
+      background-size: cover;
+      height: 315px;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.57);
+      /* Semi-transparent black */
+      z-index: 1;
+    }
+
+    .center_7_middle_left_inner h2,
+    .center_7_middle_left_inner hr,
+    .center_7_middle_left_inner p {
+      position: relative;
+      z-index: 2;
+      color: #ffffff;
+
+    }
+  </style>
+
+
+</body>
+
+</html>
+{% endblock content %}
