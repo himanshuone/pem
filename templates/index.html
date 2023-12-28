@@ -36,6 +36,15 @@
     <!-- Link to the bootstrap JS file -->
     <script src="{%static 'js/bootstrap.min.js' %}"></script>
 
+
+
+
+
+
+
+
+
+    
 </head>
 
 
@@ -117,9 +126,12 @@
                     <h1><a class="heading_tag" href="Home"><img src="{{headerLogoImage.url}}" alt="Rivaaz"
                                 width="100" height="100" class="img-fluid"></a></h1>
                 </div>
-                <!-- The menu-toggle button is used to toggle the sidebar navigation -->
                 <a id="menu-toggle" href="#" class="btn btn-warning btn-lg toggle">
-                    <i class="fa fa-toggle-on"></i>
+                    <span class="hamburger-icon">
+                        <span class="line line1"></span>
+                        <span class="line line2"></span>
+                        <span class="line line3"></span>
+                    </span>
                 </a>
                 <!-- The sidebar-wrapper div contains the sidebar navigation -->
                 <div id="sidebar-wrapper" class="">
@@ -129,6 +141,7 @@
                             <i class="fa fa-remove"></i>
                         </a>
                         <li class="sidebar-brand">
+
                             <a class="heading_tag" href="Home">RIVAAZ</a>
                         </li>
                         <li>
@@ -180,7 +193,7 @@
                         <div class="col-sm-7 center_left clearfix">
                             <div class="center_left_inner clearfix">
                                 <!-- The h1 tag is used to display a large heading -->
-                                <h1>Rivaaz Events</h1>
+                                <h1 class="riv">Rivaaz Events</h1>
                                 <!-- The h3 tag is used to display a medium heading -->
                                 <!-- <h3>Be The Guest, Let Us Do The Rest</h3> -->
                                 <!-- The h5 tag is used to display a small heading -->
@@ -327,7 +340,7 @@
 
 
                     <div class="center_6_bottom clearfix">
-                        <h5><a href="Gallery">VIEW MORE</a></h5> <!-- link to view more testimonials -->
+                        <h5><a href="Gallery">VIEW MORE</a></h5> 
                     </div>
                 </div>
             </div>
@@ -335,6 +348,32 @@
     </section>
 
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <section id="center_7" class="clearfix">
         <!-- This div contains the container class for the row -->
@@ -351,28 +390,17 @@
                         {% for k in testimonial_subset %}
 
                         <div class="col-sm-4 center_6_middle_left clearfix">
-                            <!-- <Image><source src="{{backVideo.url}}" class='img-fluid'> </Image> -->
-                            <!-- <img src="  {{testimonialBackImage.url}}"> -->
-                           
-                            <div class="center_7_middle_left_inner clearfix" 
-                                 style="height:500px; width: 300px;  text-align: center; background-image: url('{{ testimonialBackImage.url }}'); background-size: cover; background-position: center; transition: all 0.3s ease;">
-                        
+                            <div class="center_7_middle_left_inner clearfix" style="height:500px; width: 300px; text-align: center; background-image: url('{{ testimonialBackImage.url }}'); background-size: cover; background-position: center; transition: all 0.3s ease;">
+                                <div class="overlay"></div> <!-- Add this line for the overlay -->
                                 <p>
-                                    <img src="{{k.LogoImage.url}}" class="img-fluid" 
-                                         style="border-radius: 50%; border: 2px solid #e8e8e8; height: 150px; width: 150px;">
+                                    <img src="{{k.LogoImage.url}}" class="img-fluid" style="border-radius: 50%; border: 2px solid #e8e8e8; height: 150px; width: 150px;">
                                 </p>
-                                <!-- Subheading -->
-                                <h2><a href="Testimonial" 
-                                       style="color:#9b7700; font-weight: bold;">{{k.ClientNames}}</a></h2>
-                        
-                                <!-- Horizontal line -->
+                                <h2><a href="Testimonial" style="color:#9b7700; font-weight: bold;">{{k.ClientNames}}</a></h2>
                                 <hr class="hr_1">
-                                <!-- Paragraph -->
                                 <p style="color:#ffffff">{{k.ClientReview}}</p>
-                                <!-- Horizontal line -->
-
                             </div>
                         </div>
+                        
 
                         {% endfor %}
                     </div>
@@ -443,15 +471,37 @@
 
     <style>
 
-        .center_7_middle_left_inner {
-            transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+        {% comment %}   {% endcomment %}
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.57); /* Semi-transparent black */
+            z-index: 1;
+            color:#ffffff
         }
+        .center_7_middle_left_inner h2,
+.center_7_middle_left_inner p {
+    color: #ffffff; /* Set text color to white */
+    position: relative;
+    z-index: 2; /* Ensure text is above the overlay */
+    /* Optional: Add text shadow for better readability */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
 
-        .center_7_middle_left_inner:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 8px 0 #DDD78F; /* Example hover effect */
-           
-        }
+.center_7_middle_left_inner h2 a {
+    color: #ffffff; /* Set link color to white */
+    font-weight: bold; /* Optional: Adjust font weight */
+    /* Optional: Add text shadow for better readability */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.hr_1 {
+    border-top: 1px solid #ffffff; /* Set horizontal line color to white */
+}
+
 
         @media screen and (max-width : 767px){
 
@@ -461,6 +511,10 @@
 
                 margin-left: 50px;
             }
+            .riv{
+                margin-top:10px;
+            }
+           
         }
 
 
@@ -492,7 +546,8 @@
             animation-duration: 3s;
             animation-fill-mode: both;
             white-space: nowrap;
-            color: #eedc07;
+            color: #AD8706;
+           
         }
 
         .fade-in {
@@ -564,9 +619,68 @@
 
             margin-left: 10%;
         }
+        @media screen and (max-width: 600px) {
+            #text {
+                margin-left: 50%;
+                margin-top: -30px;
+                font-size: 30px; /* Adjust font size for smaller screens */
+                text-align: center;
+                width: 100%; /* Set a max width for the text */
+                white-space: normal; /* Allow text to wrap */
+                line-height: 1.2; /* Adjust line height for better readability */
+                word-break: break-word; /* Break words to prevent overflow */
+            }
+            
+            .container{
+
+                margin-bottom: 50px;
+            }
+            .clearfix{
+                padding-top:0px;
+            }
+        }
+        
+
+        .hamburger-icon .line {
+            display: block;
+            width: 30px; /* Width of the lines */
+            height: 3px; /* Height of the lines */
+            background-color: #000; /* Color of the lines */
+            margin: 5px 0; /* Spacing between the lines */
+            transition: all 0.3s ease;
+        }
+        
+        #menu-toggle {
+            padding: 10px 15px; /* Adjust padding as needed */
+        }
+        
+        /* Optional: Add a hover effect */
+        .hamburger-icon:hover .line {
+            background-color: #fff; /* Change color on hover */
+        }
+        
+        /* Styles for sidebar, adjust as needed */
+        #sidebar-wrapper {
+            /* Your styles for sidebar */
+        }
+        
+        .sidebar-nav {
+            /* Your styles for sidebar navigation */
+        }
+        
+        /* Responsive and other styles as needed */
+        
+        
+        
+    
+          
+              
+          
+            
+        
     </style>
 
-
+  
 
 </body>
 

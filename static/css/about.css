@@ -374,6 +374,9 @@ text-align:center;
 .about_2_left_inner h1 {
 font-size: 26px;
 line-height: 30px;
+margin-left: -30px;
+margin-bottom: 5px;
+
 }
 .about_2_middle_left_inner_2 h5{
  padding-bottom:30px;
@@ -453,8 +456,6 @@ padding-top: 55px;
 @media (min-width:1201px) and (max-width:1250px) {
 
  }
-
-
 
 
 

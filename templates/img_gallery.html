@@ -46,7 +46,8 @@
     .gallery-item {
         width: 450px; 
         height: 300px; 
-        overflow: hidden;
+        {% comment %} overflow: hidden; {% endcomment %}
+      
         position: relative;
         border: 5px solid #dbdb3d;
         margin-bottom: 30px;
@@ -72,11 +73,63 @@
             width: 360px; 
             height: 200px; 
         }
+
+      
+    }
+
+  
+    @media (max-width: 600px) {
+        .popup-content img {
+            width: 400px !important;
+        }
+
+        .popup-close {
+           
+            top: 120px !important;
+            right: -25px !important;
+          
+        }
     }
 
 
-
-
+    
+        .gallery-item {
+            /* ... other properties ... */
+            border: none; /* Removed the yellow border */
+        }
+    
+        /* Popup styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    
+        .popup-content {
+            position: relative;
+            padding: 20px;
+            background: transparent;
+            border-radius: 5px;
+        }
+    
+        .popup-close {
+            position: absolute;
+            top: 50px;
+            right: -15px;
+            cursor: pointer;
+            font-size: 55px;
+            color: #AD8706;
+        }
+        
+       
+  
 </style>
 
 
@@ -109,32 +162,19 @@
     <section id="gallery" class="clearfix" style="background: #f4f4f4">
         <div class="container">
             <div class="row">
-                <div class="gallery clearfix">
-                    <!-- <h1>Ready to dive into the 'Rivaaz' treasure trove?<br> Showcasing the heart and soul we put into crafting unforgettable moments.</h1> -->
-                </div>
-                <!-- <div class="gallery_middle clearfix">
-    {% for i in gallery2 %}
-    <div class="col-sm-6 gallery_middle_left clearfix">
-     <div class="grid">
-                    
-                    <figure class="effect-ming">
-                        <img src="{{i.Image.url}}" alt="img08"/>
-                        <figcaption>
-                            <h2>sjbdjsbd</h2>
-                            <p>Muditp>
-                            <a href="{% url 'img_gallery' i.EventID %}">View more</a>                       
-                        </figcaption>
-          </figure>
-      </div>
-    </div>
-    {% endfor %}
-   </div> -->
-
+                
+               
             </div>
         </div>
     </section>
 
-
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-content">
+          <span class="popup-close" id="popup-close">&times;</span>
+          <img src="" id="popup-img" alt="Popup Image">
+        </div>
+      </div>
+      
     <div class="gallery" id="gallery">
         {% for i in gallery2 %}
         <div class="gallery-item">
@@ -146,52 +186,131 @@
     <script src="{%static 'js/classie.js' %}"></script>
     <script src="{%static 'js/cbpAnimatedHeader.js' %}"></script>
     <script type="text/javascript">
-        var gallery = document.querySelector('#gallery');
-        var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
-        var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
-        var resizeAll = function () {
-            var altura = getVal(gallery, 'grid-auto-rows');
-            var gap = getVal(gallery, 'grid-row-gap');
-            gallery.querySelectorAll('.gallery-item').forEach(function (item) {
-                var el = item;
-                el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
-            });
-        };
-        gallery.querySelectorAll('img').forEach(function (item) {
-            item.classList.add('byebye');
-            if (item.complete) {
-                console.log(item.src);
-            }
-            else {
-                item.addEventListener('load', function () {
-                    var altura = getVal(gallery, 'grid-auto-rows');
-                    var gap = getVal(gallery, 'grid-row-gap');
-                    var gitem = item.parentElement.parentElement;
-                    gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
-                    item.classList.remove('byebye');
-                });
+        // Function to resize gallery items
+// Function to resize gallery items
+function resizeGalleryItems() {
+    var gallery = document.querySelector('#gallery');
+    var getVal = function(elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
+    var getHeight = function(item) { return item.querySelector('.content').getBoundingClientRect().height; };
+    var altura = getVal(gallery, 'grid-auto-rows');
+    var gap = getVal(gallery, 'grid-row-gap');
+    gallery.querySelectorAll('.gallery-item').forEach(function(item) {
+      var el = item;
+      el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+    });
+  }
+  
+  // Resize all gallery items on page load and window resize
+  window.addEventListener('load', resizeGalleryItems);
+  window.addEventListener('resize', resizeGalleryItems);
+  
+  // Function to handle image click for opening popup
+  function handleImageClick() {
+    document.querySelectorAll('.gallery-item img').forEach(item => {
+      item.addEventListener('click', function() {
+        var popupOverlay = document.getElementById('popup-overlay');
+        var popupImg = document.getElementById('popup-img');
+        popupImg.src = this.src;
+        popupOverlay.style.display = 'flex';
+      });
+    });
+  }
+  
+  // Call the function to handle image click
+  handleImageClick();
+  
+  // Function to close the popup when clicking outside the image or on the close button
+ // Function to close the popup when clicking outside the image or on the close button
+function setupPopupClose() {
+    var popupOverlay = document.getElementById('popup-overlay');
+    var popupClose = document.getElementById('popup-close');
+
+    if (popupOverlay) {
+        // Close popup when clicking on the overlay
+        popupOverlay.addEventListener('click', function(event) {
+            if (event.target === popupOverlay || event.target === popupClose) {
+                popupOverlay.style.display = 'none';
             }
         });
-        window.addEventListener('resize', resizeAll);
-        gallery.querySelectorAll('.gallery-item').forEach(function (item) {
-            item.addEventListener('click', function () {
-                item.classList.toggle('full');
+
+        // Close popup when clicking the close button
+        if (popupClose) {
+            popupClose.addEventListener('click', function(event) {
+                event.stopPropagation(); // Prevents the event from propagating to other elements
+                popupOverlay.style.display = 'none';
             });
-        });
+        }
+    }
+}
+
+// Call the setupPopupClose function to initialize the close functionality
+setupPopupClose();
 
 
-        
+
+  // Additional scripts for menu toggle
+  $("#menu-close").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+  });
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+  });
+  
     </script>
-    <script type="text/javascript">
-		$("#menu-close").click(function (e) {
-			e.preventDefault();
-			$("#sidebar-wrapper").toggleClass("active");
-		});
-		$("#menu-toggle").click(function (e) {
-			e.preventDefault();
-			$("#sidebar-wrapper").toggleClass("active");
-		});
-	</script>
+    
+    
+    
+
+    
+    
+
+
+    
+    
+
+
+
+
+
+    <style>
+        /* ... other styles ... */
+    
+        .popup-overlay {
+            /* ... existing styles ... */
+        }
+    
+        .popup-content img {
+            width: 600px;
+            height: 600px;
+            object-fit: contain; /* This will ensure the image fits within the dimensions without stretching */
+        }
+        
+        .popup-content {
+            /* ... existing styles ... */
+            max-width: 80%; /* Adjust as needed */
+            max-height: 80%; /* Adjust as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+     
+        }
+    
+      
+    
+        .popup-close {
+            cursor: pointer;
+            font-size: 55px;
+            color:#AD8706;
+            /* Remove the top and right properties */
+        }
+
+
+       
+        
+    </style>
+    
 </body>
 
 </html>

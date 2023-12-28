@@ -35,7 +35,7 @@
 <body>
 
 
-
+ 
 
   <section id="about" class="about_contact clearfix" style="	background-image: url('{{backImage.url}}')">
     <div class="about_main clearfix">
@@ -57,63 +57,65 @@
 
   <section id="contact_2" class="clearfix" style="background: #f4f4f4">
     <div class="container">
-      <div class="row">
-        <div class="contact_2 clearfix">
-          <h1 style="font-family: 'Josefin Sans', sans-serif; font-weight: bold; color: #AD8706">Feedback</h1>
-          <hr class="hr_1">
-          <p style="font-family: 'Josefin Sans', sans-serif">We would love to hear from you! <br> Contact us directly by
-            filling this form.</p>
+        <div class="row">
+            <div class="contact_2 clearfix">
+                <h1 style="font-family: 'Josefin Sans', sans-serif; font-weight: bold; color: #AD8706">Connect With Us</h1>
+                <hr class="hr_1">
+                <p style="font-family: 'Josefin Sans', sans-serif">We would love to hear from you! <br> Contact us directly by filling this form.</p>
 
-          <form action="Contact" method="post" class="feedback-form">
-            {% csrf_token %}
-            <input type="text" class="form-control" placeholder="Name" name="name" required>
-            <input type="email" class="form-control" placeholder="E-mail Address" name="email" required>
-            <input type="tel" class="form-control" placeholder="Number" name="Number">
-            <textarea placeholder="Message" class="form-control" name="message" required></textarea>
-            <button type="submit">SEND MESSAGE</button>
-          </form>
+                <form action="Contact" method="post" class="feedback-form">
+                  {% csrf_token %}
+                  <input type="text" class="form-control" placeholder="Name" name="name" required>
+                  <input type="email" class="form-control" placeholder="E-mail Address" name="email" required>
+                  <input type="tel" class="form-control" placeholder="Contact-number" name="Number">
+                  <textarea placeholder="Message" class="form-control" name="message" required></textarea>
+                  <button type="submit">SEND MESSAGE</button>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
 
 
 
+ 
   <style>
     /* Custom Styles for Feedback Form */
     .feedback-form {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
     }
-
-    .feedback-form input,
-    .feedback-form textarea {
-      margin-bottom: 15px;
-      border-radius: 4px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      width: 100%;
-      box-sizing: border-box;
+    
+    .feedback-form input, .feedback-form textarea {
+        margin-bottom: 15px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
-
+    
     .feedback-form button {
-      background-color: #AD8706;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+        background-color: #AD8706;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
     }
-
+    
     .feedback-form button:hover {
-      background-color: #927a06;
+        background-color: #927a06;
     }
-  </style>
+    
+    
+    
+      </style>
 
 
   <script src="{%static 'js/classie.js' %}"></script>

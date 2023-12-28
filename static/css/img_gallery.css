@@ -44,14 +44,14 @@ font-family: 'Josefin Sans', sans-serif!important;
 .gallery img {
   max-width: 100%;
   border-radius: 8px;
-  box-shadow: 0 0 16px #333;
+  /* box-shadow: 0 0 16px #333; */
   transition: all 1.5s ease;
 }
 .gallery img:hover {
   box-shadow: 0 0 32px #333;
 }
 .gallery .content {
-  padding: 4px;
+  padding: -15px;
 }
 .gallery .gallery-item {
   transition: grid-row-start 300ms linear;

@@ -24,6 +24,47 @@
 	<script src="{%static 'js/bootstrap.min.js'%}"></script>
 
 
+
+
+	<style>
+		.gallery_middle_left {
+			marigin-top:10px;
+			width: 555px;
+			height: 370px;
+	
+			overflow: hidden; /* Ensures no part of the image spills out of the container */
+		}
+		
+		.effect-ming img {
+			width: 100%;
+			height: 100%;
+			
+			object-fit: cover; /* Ensures the image covers the container without stretching */
+		}
+		
+		@media only screen and (max-width: 600px) {
+			.gallery_middle_left {
+				width: 100%; /* Adjust the width as needed for smaller screens */
+				
+			}
+	
+			.effect-ming img {
+				width: 100%;
+			
+	
+			/* Add any other styles you need to adjust for phones */
+		}	
+	}
+		
+	</style>
+
+
+
+
+
+
+
+
 </head>
 
 

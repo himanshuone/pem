@@ -67,8 +67,13 @@
         <h1><a class="heading_tag" href="Home"><img src="{{headerLogoImage.url}}" alt="Rivaaz"
               width="100" height="100" class="img-fluid"></a></h1>
       </div>
-      <a id="menu-toggle" href="#" class="btn btn-warning btn-lg toggle"><i class="fa fa-toggle-on"></i></a>
-
+      <a id="menu-toggle" href="#" class="btn btn-warning btn-lg toggle">
+        <span class="hamburger-icon">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+        </span>
+    </a>
       <div id="sidebar-wrapper" class="">
         <ul class="sidebar-nav">
           <a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i
@@ -124,18 +129,10 @@
 
 <style>
 
-  @keyframes glow {
-    0% {
-        text-shadow: 0 0 10px #FFEB3B, 0 0 20px #FFEB3B, 0 0 30px #FFEB3B, 0 0 40px #FFEB3B, 0 0 50px #FFEB3B, 0 0 60px #FFEB3B, 0 0 70px #FFEB3B;
-    }
-    100% {
-        text-shadow: 0 0 5px #FFEB3B, 0 0 10px #FFEB3B, 0 0 15px #FFEB3B, 0 0 20px #FFEB3B, 0 0 25px #FFEB3B, 0 0 30px #FFEB3B, 0 0 35px #FFEB3B;
-    }
-}
 
 .tag_menu.active_tab {
-    color: #FFEB3B; /* Change the text color to yellow */
-    animation: glow 1s ease-in-out infinite alternate;
+  color: #AD8706;
+
 }
 
   #header_mini {
@@ -152,8 +149,8 @@
   }
 
 .tag_menu.active_tab {
-  color: #FFEB3B; /* Change the text color to yellow */
-  text-shadow: 0 0 10px #FFEB3B;
+  color: #AD8706;
+ 
 }
 
 
@@ -169,109 +166,187 @@
     position: relative;
     z-index: 1;
   }
+
+
+
+
+  .hamburger-icon .line {
+    display: block;
+    width: 30px; /* Width of the lines */
+    height: 3px; /* Height of the lines */
+    background-color: #000; /* Color of the lines */
+    margin: 5px 0; /* Spacing between the lines */
+    transition: all 0.3s ease;
+}
+
+#menu-toggle {
+    padding: 10px 15px; /* Adjust padding as needed */
+}
+
+/* Optional: Add a hover effect */
+.hamburger-icon:hover .line {
+    background-color: #fff; /* Change color on hover */
+}
+
+/* Styles for sidebar, adjust as needed */
+#sidebar-wrapper {
+    /* Your styles for sidebar */
+}
+
+.sidebar-nav {
+    /* Your styles for sidebar navigation */
+}
+
+/* Responsive and other styles as needed */
+
+
+
+
+
+
 </style>
 
 
 
 
     {% block content %}{% endblock %}
-{% comment %} <footer class="footer" style="background:#ffffff;">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h5 style="font-family: 'Josefin Sans'; font-weight: bold; font-size:30px; padding-top: 25px; padding-bottom: 20px;">Get in touch</h5>
-        <p style="font-size: 15px;">Rivaaz Events</p>
-        <p style="font-size: 15px;">MTN, Dewali, Neemach Mata Scheme</p>
-        <p style="font-size: 15px;">Udaipur, Rajasthan, India</p>
-        <p style="font-size: 15px;">Phone: +91-9667175652 | +91-9214991141</p>
-        <hr />
-        <p style="font-size: 15px;">Andheri East, Near Book my show</p>
-        <p style="font-size: 15px;">Mumbai, Maharashtra, India</p>
-        <p style="font-size: 15px;">Phone: +91-6377633326</p>
-        <hr />  
-        <p style="font-size: 15px;">Email: Rivaaz.events1@gmail.com</p>
-      </div>
-      <div class="col-md-4" style="padding-left: 100px;">
-        <h5 style="font-family: 'Josefin Sans'; font-weight: bold; font-size:30px; padding-top: 25px; padding-bottom: 20px;">Socials</h5>
-        <ul class="list-unstyled">
-          <li><a href="https://instagram.com/rivaaz_events_" style="font-size: 18px; color: #000; font-family: 'Josefin Sans';"><i class="fa fa-instagram"></i> Instagram</a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=61550961458623&mibextid=2JQ9oc" style="font-size: 18px; color: #000;font-family: 'Josefin Sans';"><i class="fa fa-facebook"></i> Facebook</a></li>
-          <li><a href="https://www.linkedin.com/company/rivaaz-events/" style="font-size: 18px; color: #000;font-family: 'Josefin Sans';"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
-          <li><a href="mailto: Rivaaz.events1@gmail.com" style="font-size: 18px; color: #000;font-family: 'Josefin Sans';"><i class="fa fa-google"></i> Gmail</a></li>
-        </ul>
-      </div>
-       <div class="col-md-4" style="">
-        <p style="text-align: center; padding-top: 125px; font-family: 'Josefin Slab Thin'; font-weight: bold; font-size:23px;">"Every event, a 'Rivaaz' masterpiece. <br> Your moments, our magic."</p>
-      </div>
-    </div>
-    <hr />
-    <!-- <div class="row">
-      <div class="col-md-12">
-        <p>"People make events into stories, stories give events meaning."</p>
-      </div>
-    </div> -->
-    <!-- <hr /> -->
-    <div class="row">
-         <div class="col-md-6">
-        <p>© 2003 Rivaaz Events. All rights reserved.</p>
-      </div>
-      <div class="col-md-6">
-        <ul class="list-unstyled list-inline text-center">
-          <li class="list-inline-item"><a href="#">Terms of Use</a></li>
-          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-          <li class="list-inline-item"><a href="#">Disclaimer</a></li>
-        </ul>
-      </div>
-    </div>
-    
-  </div>
-</footer> {% endcomment %}
 
-<footer class="footer" style="background-color: #f8f9fa; padding: 40px 0; font-size: 14px; color: #333; line-height: 1.6; box-shadow: 0px 1px 8px 1px #ffeb00;">
+
+    <footer class="footer" style="background-color: #ffffff; padding: 40px 0; font-size: 14px; color: #000; line-height: 1.6;">
+      <div class="container">
+          <div class="row">
+              <!-- Contact Information -->
+              <div class="col-md-4" style="margin-bottom: 20px;">
+                  <h5 style="font-weight: bold; margin-bottom: 20px; font-size: 30px; color: #000000">Get in Touch</h5>
+                  <p style="margin-bottom: 20px; font-size: 17px;">Rivaaz Events</p>
+                  <p style="margin-bottom: 20px; font-size: 17px;">MTN, Dewali, Neemach Mata Scheme, Udaipur, Rajasthan, India</p>
+                  <p style="font-size: 17px;"><span style="font-weight: bold;">Phone:</span> +91-9667175652 | +91-9214991141</p>
+                  <p style="font-size: 17px;"> <span style="font-weight: bold;">Email:</span> <a href="mailto:Rivaaz.events1@gmail.com" style="color: #333; text-decoration: none;">Rivaaz.events1@gmail.com</a></p>
+              </div>
   
-  <div class="container">
-      <div class="row">
-          <!-- Contact Information -->
-          <div class="col-md-4" style="margin-bottom: 20px;">
-              <h5 style="font-weight: bold; margin-bottom: 20px; font-size: 30px; color: #d3c51d">Get in Touch</h5>
-              <p style="margin-bottom: 20px; font-size: 17px;">Rivaaz Events</p>
-              <p style="margin-bottom: 20px; font-size: 17px;">MTN, Dewali, Neemach Mata Scheme, Udaipur, Rajasthan, India</p>
-              <p style="font-size: 17px;"><span style="font-weight: bold;">Phone:</span> +91-9667175652 | +91-9214991141</p>
-
-              <p style="font-size: 17px;"> <span style="font-weight: bold;">Email:</span> <a href="mailto:Rivaaz.events1@gmail.com" style="color: #333; text-decoration: none;">Rivaaz.events1@gmail.com</a></p>
+              <!-- Social Links -->
+              <div class="col-md-4" style="margin-bottom: 20px;" id="follow-us">
+                  <h5 style="font-weight: bold; margin-bottom: 20px; font-size: 30px; color: #000000">Follow Us</h5>
+                  <ul class="list-unstyled">
+                      <li style="margin-bottom: 20px; font-size: 16px;"><a href="https://instagram.com/rivaaz_events_" class="social-link" style="color: #333; text-decoration: none;"><i class="fa fa-instagram"></i> Instagram</a></li>
+                      <li style="margin-bottom: 20px; font-size: 16px;"><a href="https://www.facebook.com/profile.php?id=61550961458623&mibextid=2JQ9oc" class="social-link" style="color: #333; text-decoration: none;"><i class="fa fa-facebook"></i> Facebook</a></li>
+                      <li style="margin-bottom: 20px; font-size: 16px;"><a href="https://www.linkedin.com/company/rivaaz-events/" class="social-link" style="color: #333; text-decoration: none;"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+                  </ul>
+              </div>
+  
+              <!-- Quote or Additional Info -->
+              <div class="col-md-4" style="margin-bottom: 20px;">
+                <p style="font-size: 20px; color: #AD8706; text-align: center;">
+                    Every event, a 'Rivaaz' masterpiece.<br>
+                    Your moments, our magic.
+                </p>
+            </div>
           </div>
-
-          <!-- Social Links -->
-          <div class="col-md-4" style="margin-bottom: 20px;">
-              <h5 style="font-weight: bold; margin-bottom: 20px; font-size: 30px; color: #d3c51d">Follow Us</h5>
-              <ul class="list-unstyled">
-                  <li style="margin-bottom: 20px; font-size: 16px;"><a href="https://instagram.com/rivaaz_events_" class="social-link" style="color: #333; text-decoration: none;"><i class="fa fa-instagram"></i> Instagram</a></li>
-                  <li style="margin-bottom: 20px; font-size: 16px;"><a href="https://www.facebook.com/profile.php?id=61550961458623&mibextid=2JQ9oc" class="social-link" style="color: #333; text-decoration: none;"><i class="fa fa-facebook"></i> Facebook</a></li>
-                  <li style="margin-bottom: 20px; font-size: 16px;"><a href="https://www.linkedin.com/company/rivaaz-events/" class="social-link" style="color: #333; text-decoration: none;"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
+  
+          <hr style="border-color: #000000;" />
+  
+          <!-- Footer Bottom -->
+          <div class="footer-bottom" style="text-align: center; padding-top: 20px; color: #000000">
+              <p>© 2003 Rivaaz Events. All rights reserved.</p>
+              <ul style="list-style: none; padding: 0; text-align: center;">
+                  <li style="display: inline; margin: 0 10px;"><a href="#" style="color: #333; text-decoration: none; transition: color 0.3s;">Terms of Use</a></li>
+                  <li style="display: inline; margin: 0 10px;"><a href="#" style="color: #333; text-decoration: none; transition: color 0.3s;">Privacy Policy</a></li>
+                  <li style="display: inline; margin: 0 10px;"><a href="#" style="color: #333; text-decoration: none; transition: color 0.3s;">Disclaimer</a></li>
               </ul>
           </div>
-
-          <!-- Quote or Additional Info -->
-          <div class="col-md-4" style="margin-bottom: 20px;">
-              <p style="font-size: 23px; color: #d3c51d">Every event, a 'Rivaaz' masterpiece. Your moments, our magic.</p>
-          </div>
       </div>
+  </footer>
+  
+  <style>
+      /* General Styles for Footer */
+      .footer {
+          background-color: #ffffff;
+          padding: 40px 0;
+          font-size: 14px;
+          color: #000;
+          line-height: 1.6;
+      }
+      
+      .footer h5 {
+          font-weight: bold;
+          margin-bottom: 20px;
+          font-size: 30px;
+          color: #000000;
+      }
+      
+      .footer p {
+          margin-bottom: 20px;
+          font-size: 17px;
+      }
+      
+      .footer a {
+          color: #333;
+          text-decoration: none;
+      }
+      
+      .footer .social-link i {
+          margin-right: 5px;
+      }
+      
+      .footer .footer-bottom {
+          text-align: center;
+          padding-top: 20px;
+          color: #000000;
+      }
+      
+      .footer .footer-bottom ul {
+          list-style: none;
+          padding: 0;
+          text-align: center;
+      }
+      
+      .footer .footer-bottom li {
+          display: inline;
+          margin: 0 10px;
+      }
+      
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+          .footer .row {
+              display: flex;
+              flex-direction: column;
+          }
+      
+          .footer .col-md-4 {
+              width: 100%;
+              text-align: left;
+              margin-bottom: 20px; /* Consistent margin */
+          }
+      
+          .footer .col-md-4:nth-child(1) {
+              order: 1; /* Get in Touch */
+          }
+      
+          .footer .col-md-4:nth-child(2) {
+              order: 2; /* Quote or Additional Info */
+          }
+      
+          .footer .col-md-4:nth-child(3) {
+              order: 2; /* Follow Us */
+              text-align: center;
+          }
+      
+          .footer .footer-bottom {
+              text-align: center;
+          }
+      
+          #follow-us {
+              text-align: left;
+          }
+      }
+      
+      @media (min-width: 769px) {
+          #follow-us {
+              text-align: center;
+          }
 
-      <hr style="border-color: #cbcb46;" />
-
-      <!-- Footer Bottom -->
-      <div class="footer-bottom" style="text-align: center; padding-top: 20px; color: #d3c51d">
-          <p>© 2003 Rivaaz Events. All rights reserved.</p>
-          <ul style="list-style: none; padding: 0; text-align: center;">
-              <li style="display: inline; margin: 0 10px;"><a href="#" style="color: #333; text-decoration: none; transition: color 0.3s;">Terms of Use</a></li>
-              <li style="display: inline; margin: 0 10px;"><a href="#" style="color: #333; text-decoration: none; transition: color 0.3s;">Privacy Policy</a></li>
-              <li style="display: inline; margin: 0 10px;"><a href="#" style="color: #333; text-decoration: none; transition: color 0.3s;">Disclaimer</a></li>
-          </ul>
-      </div>
-  </div>
-</footer>
-
-
-
-
-
+          
+      }
+      
+  </style>
+  

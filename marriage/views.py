@@ -9,15 +9,17 @@ def index(request):
 	testimonial = Testimonials.objects.all()
 	testimonial_subset = testimonial[0:3]
 	services_subset = services[0:4]
-	gallery = Gallery.objects.all()
 	backVideo = MasterVideoTable.objects.filter(VideoPosition ='Back Video', PageName = 'Index' )
 	headerLogoImage = MasterImageTable.objects.filter(PageName = 'Header', ImagePosition='Header') 
 	aboutUsLogoImage = MasterImageTable.objects.filter(PageName = 'Index', ImagePosition='About Us')
 	testimonialBackImage = MasterImageTable.objects.filter(PageName = 'Index', ImagePosition='Testimonial Background')
 	aboutUsBackImage = MasterImageTable.objects.filter(PageName = 'Index', ImagePosition='About Us Background')
+	gallery = Gallery.objects.all()
+	headerLogoImage = MasterImageTable.objects.filter(PageName = 'Header', ImagePosition='Header')
+	backImage=MasterImageTable.objects.filter(PageName = 'Gallery', ImagePosition='Back')
+	print(backImage.first().Image)
 
-
-	return render(request, "index.html",{'gallery':gallery,'stories':stories, 'services':services,'testimonial':testimonial,'testimonial_subset':testimonial_subset,'backVideo':backVideo.first().Video, 'headerLogoImage':headerLogoImage.first().Image, 'aboutUsLogoImage':aboutUsLogoImage.first().Image, 'testimonialBackImage': testimonialBackImage.first().Image, 'aboutUsBackImage': aboutUsBackImage.first().Image,'services_subset': services_subset })
+	return render(request, "index.html",{'gallery':gallery, 'headerLogoImage':headerLogoImage.first().Image,'backImage':backImage.first().Image,'stories':stories, 'services':services,'testimonial':testimonial,'testimonial_subset':testimonial_subset,'backVideo':backVideo.first().Video, 'headerLogoImage':headerLogoImage.first().Image, 'aboutUsLogoImage':aboutUsLogoImage.first().Image, 'testimonialBackImage': testimonialBackImage.first().Image, 'aboutUsBackImage': aboutUsBackImage.first().Image,'services_subset': services_subset })
 
 def about(request):
 	stories= Stories.objects.all()
@@ -35,22 +37,21 @@ def blog(request):
 	return render(request, "blog.html")
 
 def contact(request):
-	if request.method == 'POST':
-		name = request.POST.get('name')
-		email = request.POST.get('email')
-		Number = request.POST.get('Number')
-		message = request.POST.get('message')
-		headerLogoImage = MasterImageTable.objects.filter(PageName = 'Header', ImagePosition='Header')
-		backImage=MasterImageTable.objects.filter(PageName='Contact', ImagePosition='Back')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        Number = request.POST.get('Number')
+        message = request.POST.get('message')
+        headerLogoImage = MasterImageTable.objects.filter(PageName = 'Header', ImagePosition='Header')
+        backImage=MasterImageTable.objects.filter(PageName='Contact', ImagePosition='Back')
 
-		data = Contact(Name=name,Email=email,Number=Number,Message=message)
-		data.save()
-		return render(request,"contact.html",{'headerLogoImage':headerLogoImage.first().Image,'backImage':backImage.first().Image})
-	else:
-		headerLogoImage = MasterImageTable.objects.filter(PageName = 'Header', ImagePosition='Header')
-		backImage=MasterImageTable.objects.filter(PageName='Contact', ImagePosition='Back')
-		return render(request, "contact.html",{'headerLogoImage':headerLogoImage.first().Image,'backImage':backImage.first().Image})
-
+        data = Contact(Name=name,Email=email,Number=Number,Message=message)
+        data.save()
+        return render(request,"contact.html",{'headerLogoImage':headerLogoImage.first().Image,'backImage':backImage.first().Image})
+    else:
+        headerLogoImage = MasterImageTable.objects.filter(PageName = 'Header', ImagePosition='Header')
+        backImage=MasterImageTable.objects.filter(PageName='Contact', ImagePosition='Back')
+        return render(request, "contact.html",{'headerLogoImage':headerLogoImage.first().Image,'backImage':backImage.first().Image})
 
 def gallery(request):
 	gallery = Gallery.objects.all()
